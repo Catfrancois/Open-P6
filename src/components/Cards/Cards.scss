@@ -1,0 +1,40 @@
+$card-border-color: #ccc;
+$card-border-radius: 8px;
+$card-padding: 1rem;
+$card-margin-bottom: 1rem;
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid $card-border-color;
+  padding: $card-padding;
+  border-radius: $card-border-radius;
+  margin-bottom: $card-margin-bottom;
+  flex-basis: calc((100% - 2rem) / 3);
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
+  }
+
+  &__details {
+    padding: $card-padding;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+
+  &__description,
+  &__location,
+  &__rating {
+    margin: 0.25rem 0;
+  }
+}

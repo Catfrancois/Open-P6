@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  height: 200px;
+  gap: 25px;
+
+  &__text {
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 500;
+  }
+}

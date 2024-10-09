@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  color: #FF6060;
+  font-size: 14px;
+  font-family: Montserrat;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0 0 8px 0;
+}
+
+p {
+  margin: 0 0 8px 0;
+}
+
+main {
+  min-height: calc(100vh - 332px);
+}
+//todo/ MAIN SUR PAGES
