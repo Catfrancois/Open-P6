@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Dropdown from '../../components/Dropdown'
+import Carousel from '../../components/Carousel'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './Announcement.scss'
 import activeStar from '../../assets/img/star-active.png'
 import inactiveStar from '../../assets/img/star-inactive.png'
-import arrowPrev from '../../assets/img/arrow-prev-big.png'
-import arrowNext from '../../assets/img/arrow-next-big.png'
 
 const Announcement = () => {
   const location = useLocation()
@@ -22,7 +21,6 @@ const Announcement = () => {
   } = location.state || {}
 
   const navigate = useNavigate()
-  const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
     if (!id) {
@@ -34,22 +32,10 @@ const Announcement = () => {
     return null
   }
 
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? pictures.length - 1 : prevIndex - 1
-    )
-  }
-
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === pictures.length - 1 ? 0 : prevIndex + 1
-    )
-  }
-
   const starRating = (rating) => {
     const starNumber = rating
-    let i = 0;
-    const stars = [];
+    let i = 0
+    const stars = []
 
     while (i < 5) {
       stars.push(
@@ -59,46 +45,22 @@ const Announcement = () => {
           alt="star"
           className='announcement__star'
         />
-      );
-      i++;
+      )
+      i++
     }
 
-    return <div className="announcement__stars">{stars}</div>;
-  };
+    return <div className="announcement__stars">{stars}</div>
+  }
 
-  const tagList = tags.map(tag => <p className="announcement__tag">{tag}</p>)
+  const tagList = tags.map((tag, index) => (
+    <p key={index} className="announcement__tag">{tag}</p>
+  ))
 
-  const [firstName, lastName ] = host.name.split(" ")
+  const [firstName, lastName] = host.name.split(" ")
 
   return (
     <main className="announcement">
-
-      <div className="announcement__carousel">
-        <button
-          onClick={goToPrevious}
-          className="announcement__carousel-control-right"
-        >
-          <img
-            src={arrowPrev}
-            alt="Previous"
-            className="announcement__left-icon"
-          />
-        </button>
-        <div className="announcement__image-container">
-          <img
-            src={pictures[currentIndex]}
-            alt={title}
-            className="announcement__image"
-          />
-        </div>
-        <button onClick={goToNext} className="announcement__carousel-control-left">
-          <img
-            src={arrowNext}
-            alt="Next"
-            className="announcement__right-icon"
-          />
-        </button>
-      </div>
+      <Carousel pictures={pictures} title={title} />
 
       <div className="announcement__details">
         <div className="announcement__details-location">

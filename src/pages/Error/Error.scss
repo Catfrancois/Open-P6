@@ -1,0 +1,54 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+  gap: 4rem;
+
+  &__title {
+    font-size: 18rem;
+    font-weight: 700;
+    color: #FF6060;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 6rem;
+  }
+
+  &__text {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  &__link {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: black;
+    text-decoration: underline;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .error {
+
+    &__title {
+      padding-top: 2rem;
+      font-size: 6rem;
+    }
+
+    &__text {
+      font-size: 1.125rem;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    &__link {
+      font-size: 0.875rem;
+    }
+  }
+}

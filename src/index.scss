@@ -2,8 +2,9 @@
 
 body {
   color: #FF6060;
-  font-size: 14px;
-  font-family: Montserrat;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Montserrat, sans-serif;
 }
 
 * {
@@ -13,14 +14,19 @@ body {
 }
 
 h1 {
-  margin: 0 0 8px 0;
+  margin: 0;
 }
 
 p {
-  margin: 0 0 8px 0;
+  margin: 0;
 }
 
 main {
-  min-height: calc(100vh - 332px);
+  min-height: calc(100vh - 342px);
 }
-//todo/ MAIN SUR PAGES
+
+@media only screen and (max-width: 1024px) {
+  main {
+    min-height: calc(100vh - 304px);
+  }
+}

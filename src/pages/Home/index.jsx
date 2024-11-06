@@ -5,21 +5,15 @@ import './Home.scss'
 
 const Home = () => {
   const url = '/data/announcements.json'
-  const { data, isLoading, error } = useFetchAnnouncements(url)
-
-  if (isLoading) return <span>Chargement...</span>
-  if (error) return <span>Erreur: {error.message}</span>
-
-  if (error)
-    return <span>Il y a un problème: {error.message}</span>
+  const { data } = useFetchAnnouncements(url)
 
   return (
     <div className="home">
-      <div className="home__header">
+      <div className="home__img-container">
         <img src={cote} alt="cote" className="home__img" />
-        <h1 className='home__title'>Page D'accueil</h1>
+        <h1 className='home__title'>Chez vous, partout et ailleurs</h1>
       </div>
-      <div className='home__cards'>
+      <div className='home__cards-container'>
         <Cards data={data} />
       </div>
     </div>

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import arrowUp from '../../assets/img/arrowUp.png'
+
 import './Dopdown.scss'
 
 const Dropdown = ({ title, content }) => {
@@ -12,21 +14,24 @@ const Dropdown = ({ title, content }) => {
   return (
     <div className="dropdown">
       <button className="dropdown__button" onClick={toggleDropdown}>
-        {title}
+        <p>{title}</p>
+        <img
+          src={arrowUp}
+          className={isOpen ? 'dropdown__arrow rotated' : 'dropdown__arrow'}
+          alt="Toggle Dropdown"
+        />
       </button>
-      {isOpen && (
-        <div className="dropdown__content">
-          {typeof content === 'string' ? (
-            <p>{content}</p>
-          ) : (
-            <ul>
-              {content.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      )}
+      <div className={isOpen ? 'dropdown__content open' : 'dropdown__content'}>
+        {typeof content === 'string' ? (
+          <p>{content}</p>
+        ) : (
+          <ul>
+            {content.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   )
 }
